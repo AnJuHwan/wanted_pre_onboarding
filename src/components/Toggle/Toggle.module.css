@@ -1,0 +1,40 @@
+span {
+  position: relative;
+  z-index: 100;
+}
+
+.buttonContainer {
+  position: relative;
+  width: 50%;
+  height: 50px;
+  background-color: #dbdbdb;
+  display: flex;
+  border-radius: 120px;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  flex: 1;
+  border-radius: 120px;
+  color: rgba(0, 0, 0, 0.5);
+  background-color: transparent;
+  cursor: pointer;
+  height: 42px;
+}
+
+.buttonFocus {
+  color: rgba(0, 0, 0, 1);
+}
+
+.focusBackground {
+  position: absolute;
+  z-index: 1;
+  height: 42px;
+  top: 50%;
+  left: 0%;
+  background-color: white;
+  width: 50%;
+  border-radius: 150px;
+  transition: 0.8s;
+}
