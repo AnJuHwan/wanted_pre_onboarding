@@ -3,7 +3,8 @@ import styles from './Tab.module.css';
 import CenterContainer from '../CenterContainer/CenterContainer';
 
 const Tab = () => {
-  const [selectTabBar, setSelectTabBar] = useState<string>('');
+  const tabBarData: string[] = ['감자', '고구마', '카레라이스'];
+  const [selectTabBar, setSelectTabBar] = useState<string>('감자');
 
   const focusedItem = `${styles.tabBarItem} ${styles.focusedTabBarItem}`;
   const tabBarItem = `${styles.tabBarItem}`;
@@ -13,7 +14,7 @@ const Tab = () => {
       return 0;
     } else if (selectTabBar === '고구마') {
       return 100;
-    } else {
+    } else if (selectTabBar === '카레라이스') {
       return 200;
     }
   };
@@ -26,27 +27,18 @@ const Tab = () => {
             style={{
               transform: `translate(${tabBarSelect()}%)`,
             }}></div>
-          <div
-            className={selectTabBar === '감자' ? focusedItem : tabBarItem}
-            onClick={() => {
-              setSelectTabBar('감자');
-            }}>
-            <span>감자</span>
-          </div>
-          <div
-            className={selectTabBar === '고구마' ? focusedItem : tabBarItem}
-            onClick={() => {
-              setSelectTabBar('고구마');
-            }}>
-            <span>고구마</span>
-          </div>
-          <div
-            className={selectTabBar === '카레라이스' ? focusedItem : tabBarItem}
-            onClick={() => {
-              setSelectTabBar('카레라이스');
-            }}>
-            <span>카레라이스</span>
-          </div>
+          {tabBarData.map((data, index) => {
+            return (
+              <div
+                key={index}
+                className={selectTabBar === `${data}` ? focusedItem : tabBarItem}
+                onClick={() => {
+                  setSelectTabBar(data);
+                }}>
+                <span>{data}</span>
+              </div>
+            );
+          })}
         </div>
         <div className={styles.content}>
           <span>{selectTabBar}</span>

@@ -1,1 +1,36 @@
 https://miriya.notion.site/ad592b834cbb4b28ab015bfbf2c337b0
+
+https://cheri.tistory.com/37?category=927512
+
+https://nikitahl.com/style-range-input-css
+
+https://fontawesome.com/docs/web/use-with/react/ 아이콘
+
+
+/* input[type='range'] {
+  -webkit-appearance: none;
+  height: 7px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 5px;
+  background-image: linear-gradient(#ff4500, #ff4500);
+  background-size: 40% 100%; //40% 채워지는값 동적으로 받아야댐
+  background-repeat: no-repeat;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #ff4500;
+  cursor: ew-resize;
+  box-shadow: 0 0 2px 0 #555;
+  transition: background 0.3s ease-in-out;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  box-shadow: none;
+  border: none;
+  background: transparent;
+} */
