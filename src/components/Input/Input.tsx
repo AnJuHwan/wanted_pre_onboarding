@@ -1,7 +1,12 @@
 import React from 'react';
+import CenterContainer from '../CenterContainer/CenterContainer';
 
 const Input = () => {
-  return <div>Input</div>;
+  return (
+    <CenterContainer>
+      <div>Input</div>
+    </CenterContainer>
+  );
 };
 
 export default Input;
