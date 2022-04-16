@@ -9,7 +9,7 @@ const Tab = () => {
   const focusedItem = `${styles.tabBarItem} ${styles.focusedTabBarItem}`;
   const tabBarItem = `${styles.tabBarItem}`;
 
-  const tabBarSelect = () => {
+  const tabBarSelect = (): number | null => {
     if (selectTabBar === '감자') {
       return 0;
     } else if (selectTabBar === '고구마') {
@@ -17,6 +17,7 @@ const Tab = () => {
     } else if (selectTabBar === '카레라이스') {
       return 200;
     }
+    return null;
   };
   return (
     <CenterContainer>
