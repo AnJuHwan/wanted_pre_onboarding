@@ -1,0 +1,77 @@
+.container {
+  display: flex;
+  height: 310px;
+  border: 1px solid #dbdbdb;
+  padding: 20px;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+
+.dropdownBox {
+  display: flex;
+  padding: 10px;
+  border: 1px solid #999999;
+  width: 220px;
+  border-radius: 4px;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.dropdownBox span {
+  font-size: 14px;
+}
+
+.selectItemContainer {
+  width: 220px;
+  border: 1px solid #999999;
+  border-radius: 4px;
+  margin-top: 4px;
+}
+
+.searchContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.searchContainer input {
+  padding: 6px;
+  border: none;
+  outline: none;
+}
+
+.sesarchIcon {
+  width: 12px;
+  height: 12px;
+  color: #dbdbdb;
+  margin-left: 4px;
+  margin-right: 2px;
+}
+
+.selectItemBox {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 0px;
+}
+
+.listItemDiv {
+  width: 100%;
+
+  padding: 5px 20px;
+}
+
+.listItemDiv:hover {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 5px 20px;
+}
+
+.listItem {
+  position: relative;
+  z-index: 110;
+  font-size: 14px;
+  cursor: pointer;
+  width: 100%;
+}
