@@ -50,5 +50,3 @@ const Tab = () => {
 };
 
 export default Tab;
-
-// 리팩토링 할 예정

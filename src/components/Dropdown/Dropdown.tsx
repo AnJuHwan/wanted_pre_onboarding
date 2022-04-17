@@ -1,6 +1,6 @@
 import { faSearch, faSortDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react';
+import React, { MutableRefObject, useRef, useState } from 'react';
 import CenterContainer from '../CenterContainer/CenterContainer';
 import styles from './Dropdown.module.css';
 
@@ -16,6 +16,7 @@ const Dropdown = () => {
   const [openDropdown, setOpenDropdown] = useState<boolean>(false);
   const [dropdownList, setDropdownList] = useState<string[]>(dropdownItems);
   const [dropdownSelectItem, setDropdownSelectItem] = useState<string>(dropdownItems[0]);
+  const selectRef = useRef<any>();
 
   const dropdownSelectItemHandler = (selectItem: string) => {
     setDropdownSelectItem(selectItem);
@@ -48,9 +49,9 @@ const Dropdown = () => {
                 }
               />
             </div>
-            <div className={styles.selectItemBox}>
-              {dropdownList.map((item) => (
-                <div className={styles.listItemDiv}>
+            <div className={styles.selectItemBox} ref={selectRef}>
+              {dropdownList.map((item, index) => (
+                <div key={index} className={styles.listItemDiv}>
                   <span className={styles.listItem} onClick={() => dropdownSelectItemHandler(item)}>
                     {item}
                   </span>

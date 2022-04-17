@@ -37,4 +37,5 @@ span {
   width: 50%;
   border-radius: 150px;
   transition: 0.8s;
+  cursor: pointer;
 }
