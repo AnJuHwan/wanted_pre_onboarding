@@ -1,6 +1,6 @@
 import { faSearch, faSortDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { MutableRefObject, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import CenterContainer from '../CenterContainer/CenterContainer';
 import styles from './Dropdown.module.css';
 
@@ -16,11 +16,12 @@ const Dropdown = () => {
   const [openDropdown, setOpenDropdown] = useState<boolean>(false);
   const [dropdownList, setDropdownList] = useState<string[]>(dropdownItems);
   const [dropdownSelectItem, setDropdownSelectItem] = useState<string>(dropdownItems[0]);
-  const selectRef = useRef<any>();
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const dropdownSelectItemHandler = (selectItem: string) => {
     setDropdownSelectItem(selectItem);
     setOpenDropdown(false);
+    setDropdownList(dropdownItems);
   };
 
   const searchDropdownList = (searchItem: string) => {
@@ -30,6 +31,20 @@ const Dropdown = () => {
     setDropdownList(searchItemList);
   };
 
+  const closeDropdownHandler = (event: MouseEvent) => {
+    if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+      setOpenDropdown(false);
+      setDropdownList(dropdownItems);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', closeDropdownHandler);
+    return () => {
+      document.addEventListener('mousedown', closeDropdownHandler);
+    };
+  }, [containerRef]);
+
   return (
     <CenterContainer>
       <div className={styles.container}>
@@ -38,7 +53,7 @@ const Dropdown = () => {
           <FontAwesomeIcon icon={faSortDown} />
         </div>
         {openDropdown && (
-          <div className={styles.selectItemContainer}>
+          <div className={styles.selectItemContainer} ref={containerRef}>
             <div className={styles.searchContainer}>
               <FontAwesomeIcon icon={faSearch} className={styles.sesarchIcon} />
               <input
@@ -49,15 +64,16 @@ const Dropdown = () => {
                 }
               />
             </div>
-            <div className={styles.selectItemBox} ref={selectRef}>
+            <ul className={styles.selectItemBox}>
               {dropdownList.map((item, index) => (
-                <div key={index} className={styles.listItemDiv}>
-                  <span className={styles.listItem} onClick={() => dropdownSelectItemHandler(item)}>
-                    {item}
-                  </span>
-                </div>
+                <li
+                  key={index}
+                  className={styles.listItem}
+                  onClick={() => dropdownSelectItemHandler(item)}>
+                  {item}
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         )}
       </div>

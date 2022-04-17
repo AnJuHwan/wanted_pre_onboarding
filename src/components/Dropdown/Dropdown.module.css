@@ -56,22 +56,24 @@
   padding: 5px 0px;
 }
 
-.listItemDiv {
+.listItem {
   width: 100%;
-
+  list-style: none;
   padding: 5px 20px;
+  font-size: 14px;
+  cursor: pointer;
 }
 
-.listItemDiv:hover {
+.listItem:hover {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.1);
   padding: 5px 20px;
 }
 
-.listItem {
+/* .listItem {
   position: relative;
   z-index: 110;
   font-size: 14px;
   cursor: pointer;
   width: 100%;
-}
+} */
