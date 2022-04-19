@@ -6,7 +6,6 @@ import styles from './Dropdown.module.css';
 
 const Dropdown = () => {
   const dropdownItems: string[] = [
-    'All Symbols',
     'BTCUSD.PERP',
     'ETHUSD.PERP',
     'BCHUSD.PERP',
@@ -14,46 +13,47 @@ const Dropdown = () => {
     'XRPUSD.PERP',
   ];
   const [openDropdown, setOpenDropdown] = useState<boolean>(false);
-  const [dropdownList, setDropdownList] = useState<string[]>(dropdownItems);
-  const [dropdownSelectItem, setDropdownSelectItem] = useState<string>(dropdownItems[0]);
+  const [dropdownList, setDropdownList] = useState<string[]>(['All Symbols', ...dropdownItems]);
+  const [dropdownSelectItem, setDropdownSelectItem] = useState<string>('All Symbols');
   const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    document.addEventListener('mousedown', closeDropdownHandler);
+    return () => {
+      console.log('2');
+      document.addEventListener('mousedown', closeDropdownHandler);
+    };
+  }, [containerRef]);
 
   const dropdownSelectItemHandler = (selectItem: string) => {
     setDropdownSelectItem(selectItem);
     setOpenDropdown(false);
-    setDropdownList(dropdownItems);
+    setDropdownList(['All Symbols', ...dropdownItems]);
   };
 
   const searchDropdownList = (searchItem: string) => {
     const searchItemList = dropdownItems.filter((item) =>
       item.toUpperCase().includes(searchItem.toUpperCase()),
     );
-    setDropdownList(searchItemList);
+    setDropdownList(['All Symbols', ...searchItemList]);
   };
 
   const closeDropdownHandler = (event: MouseEvent) => {
     if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
       setOpenDropdown(false);
-      setDropdownList(dropdownItems);
+      setDropdownList(['All Symbols', ...dropdownItems]);
     }
   };
 
-  useEffect(() => {
-    document.addEventListener('mousedown', closeDropdownHandler);
-    return () => {
-      document.addEventListener('mousedown', closeDropdownHandler);
-    };
-  }, [containerRef]);
-
   return (
     <CenterContainer>
-      <div className={styles.container}>
+      <div className={styles.container} ref={containerRef}>
         <div className={styles.dropdownBox} onClick={() => setOpenDropdown(!openDropdown)}>
           <span>{dropdownSelectItem}</span>
           <FontAwesomeIcon icon={faSortDown} />
         </div>
         {openDropdown && (
-          <div className={styles.selectItemContainer} ref={containerRef}>
+          <div className={styles.selectItemContainer}>
             <div className={styles.searchContainer}>
               <FontAwesomeIcon icon={faSearch} className={styles.sesarchIcon} />
               <input
@@ -65,14 +65,16 @@ const Dropdown = () => {
               />
             </div>
             <ul className={styles.selectItemBox}>
-              {dropdownList.map((item, index) => (
-                <li
-                  key={index}
-                  className={styles.listItem}
-                  onClick={() => dropdownSelectItemHandler(item)}>
-                  {item}
-                </li>
-              ))}
+              {dropdownList.map((item, index) => {
+                return (
+                  <li
+                    key={index}
+                    className={styles.listItem}
+                    onClick={() => dropdownSelectItemHandler(item)}>
+                    {item}
+                  </li>
+                );
+              })}
             </ul>
           </div>
         )}
