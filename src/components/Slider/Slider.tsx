@@ -16,7 +16,7 @@ const Slider = () => {
     <CenterContainer>
       <div className={styles.container}>
         <div className={styles.persentBar}>
-          <span>{rangePersent}</span>
+          <span>{rangePersent === 0 ? 1 : rangePersent}</span>
           <span style={{ color: 'grey', marginLeft: 12 }}>%</span>
         </div>
 
@@ -38,7 +38,7 @@ const Slider = () => {
             className={styles.progressBar}
             type='range'
             value={rangePersent}
-            min={1}
+            min={0}
             max={100}
             onChange={rangeHandler}
           />
