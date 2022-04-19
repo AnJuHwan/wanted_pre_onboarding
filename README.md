@@ -41,3 +41,5 @@
 ```
 
 slider을 구현하기 위해서 바의 색상등 커스텀하기 위해 css를 찾아보고 example에 있는 코드를 직접 복사붙여넣기 해서 하나씩 바꿔보면서 적용 해보면서 가장 쉬운 방식으로 적용해갔습니다.
+
+배포된 사이트 : https://the-awesome-anjuhwan-site.netlify.app/
