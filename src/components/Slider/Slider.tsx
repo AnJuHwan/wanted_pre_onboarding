@@ -16,7 +16,7 @@ const Slider = () => {
     <CenterContainer>
       <div className={styles.container}>
         <div className={styles.persentBar}>
-          <span>{rangePersent === 0 ? 1 : rangePersent}</span>
+          <span>{rangePersent}</span>
           <span style={{ color: 'grey', marginLeft: 12 }}>%</span>
         </div>
 
@@ -27,7 +27,7 @@ const Slider = () => {
                 key={index}
                 className={styles.step}
                 style={{
-                  left: `${index === 0 ? 0 : data}%`,
+                  left: `${index === 0 ? 0 : data - 0.1}%`,
                   transform: `translateX(${-data}%)`,
                   backgroundColor: `${rangePersent >= data ? 'grey' : '#dbdbdb'}  `,
                 }}
@@ -38,7 +38,7 @@ const Slider = () => {
             className={styles.progressBar}
             type='range'
             value={rangePersent}
-            min={0}
+            min={1}
             max={100}
             onChange={rangeHandler}
           />
@@ -50,7 +50,7 @@ const Slider = () => {
               <div
                 key={index}
                 className={styles.selectPersent}
-                onClick={() => persentHandler(data === 1 ? 0 : data)}>
+                onClick={() => persentHandler(data)}>
                 <span>{data}%</span>
               </div>
             );
