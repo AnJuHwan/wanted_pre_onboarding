@@ -1,15 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './App.module.css';
+import Dropdown from './components/Dropdown/Dropdown';
+import Input from './components/Input/Input';
+import Slider from './components/Slider/Slider';
+import Tab from './components/Tab/Tab';
+import Toggle from './components/Toggle/Toggle';
 
 function App() {
   return (
     <div className={styles.container}>
-      <Link to='/toggle'>Toggle</Link>
-      <Link to='/tab'>Tab</Link>
-      <Link to='/slider'>Slider</Link>
-      <Link to='/input'>Input</Link>
-      <Link to='/dropdown'>Dropdown</Link>
+      <Toggle />
+      <Tab />
+      <Slider />
+      <Input />
+      <Dropdown />
     </div>
   );
 }
