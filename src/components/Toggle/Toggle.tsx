@@ -4,7 +4,7 @@ import styles from './Toggle.module.css';
 const Toggle = () => {
   const [defaultButtonState, setDefalutButtonState] = useState<boolean>(true);
 
-  const buttonToggleHandler = (toggle: boolean) => {
+  const buttonToggleHandler = (toggle: boolean): void => {
     setDefalutButtonState(toggle);
   };
 

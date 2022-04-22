@@ -25,20 +25,20 @@ const Dropdown = () => {
     };
   }, [containerRef]);
 
-  const dropdownSelectItemHandler = (selectItem: string) => {
+  const dropdownSelectItemHandler = (selectItem: string): void => {
     setDropdownSelectItem(selectItem);
     setOpenDropdown(false);
     setDropdownList(['All Symbols', ...dropdownItems]);
   };
 
-  const searchDropdownList = (searchItem: string) => {
+  const searchDropdownList = (searchItem: string): void => {
     const searchItemList = dropdownItems.filter((item) =>
       item.toUpperCase().includes(searchItem.toUpperCase()),
     );
     setDropdownList(['All Symbols', ...searchItemList]);
   };
 
-  const closeDropdownHandler = (event: MouseEvent) => {
+  const closeDropdownHandler = (event: MouseEvent): void => {
     if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
       setOpenDropdown(false);
       setDropdownList(['All Symbols', ...dropdownItems]);

@@ -4,11 +4,12 @@ import styles from './Slider.module.css';
 const Slider = () => {
   const persentData: number[] = [1, 25, 50, 75, 100];
   const [rangePersent, setRangePersent] = useState<number>(1);
-  const rangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+  
+  const rangeHandler = (e: React.ChangeEvent<HTMLInputElement>):void => {
     setRangePersent(Number(e.currentTarget.value));
   };
 
-  const persentHandler = (persent: number) => {
+  const persentHandler = (persent: number):void => {
     setRangePersent(persent);
   };
 
