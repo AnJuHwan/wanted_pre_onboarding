@@ -43,3 +43,19 @@ label {
   margin: 10px;
   cursor: pointer;
 }
+
+.emailSuccess {
+  color: green;
+}
+
+.emailFail {
+  color: #dbdbdb;
+}
+
+.passwordClose {
+  color: black;
+}
+
+.passwordOpen {
+  color: green;
+}

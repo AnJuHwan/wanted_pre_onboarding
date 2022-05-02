@@ -12,7 +12,7 @@ const Input: React.FC = (props) => {
 
   const emailError = 'Invalid e-mail address.';
   const emailRegExp = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; // 이메일 정규 표현식
-  const emailSuccess = !emailRegExp.test(email) ? '#dbdbdb' : 'green';
+  const emailSuccess = !emailRegExp.test(email) ? `${styles.emailFail}` : `${styles.emailSuccess}`;
 
   const successEmailHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setEmailOutFocus(false);
@@ -38,8 +38,7 @@ const Input: React.FC = (props) => {
           />
           <FontAwesomeIcon
             icon={faCircleCheck}
-            style={{ color: emailSuccess }}
-            className={styles.successEmail}
+            className={`${styles.successEmail} ${emailSuccess}`}
           />
         </div>
         {emailOutFocus && (
@@ -61,8 +60,9 @@ const Input: React.FC = (props) => {
           />
           <FontAwesomeIcon
             icon={passwordOpen ? faEye : faEyeSlash}
-            className={styles.opnePasswordIcon}
-            style={{ color: `${passwordOpen ? 'green' : 'black'}` }}
+            className={`${styles.opnePasswordIcon} ${
+              passwordOpen ? styles.passwordOpen : styles.passwordClose
+            }`}
             onClick={() => setPasswordOpen(!passwordOpen)}
           />
         </div>
