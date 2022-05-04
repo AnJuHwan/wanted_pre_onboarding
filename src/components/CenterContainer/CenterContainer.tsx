@@ -1,12 +1,12 @@
-import React from 'react';
-import styles from './CenterContainer.module.css';
+import React from 'react'
+import styles from './CenterContainer.module.css'
 
 interface IProps {
-  children: JSX.Element;
+  children: JSX.Element
 }
 
-const CenterContainer: React.FC<IProps> = ({ children }) => {
-  return <div className={styles.container}>{children}</div>;
-};
+function CenterContainer({ children }: IProps) {
+  return <div className={styles.container}>{children}</div>
+}
 
-export default CenterContainer;
+export default CenterContainer

@@ -5,37 +5,37 @@ span {
 
 .buttonContainer {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 50%;
   height: 50px;
   background-color: #dbdbdb;
-  display: flex;
   border-radius: 120px;
-  justify-content: center;
-  align-items: center;
 }
 
 .button {
   flex: 1;
-  border-radius: 120px;
-  color: rgba(0, 0, 0, 0.5);
-  background-color: transparent;
-  cursor: pointer;
   height: 42px;
+  color: rgba(0, 0, 0, 20%);
+  cursor: pointer;
+  background-color: transparent;
+  border-radius: 120px;
 }
 
 .buttonFocus {
-  color: rgba(0, 0, 0, 1);
+  color: rgba(0, 0, 0, 80%);
 }
 
 .focusBackground {
   position: absolute;
-  z-index: 1;
-  height: 42px;
   top: 50%;
   left: 0%;
-  background-color: white;
+  z-index: 1;
   width: 50%;
+  height: 42px;
+  cursor: pointer;
+  background-color: white;
   border-radius: 150px;
   transition: 0.8s;
-  cursor: pointer;
 }

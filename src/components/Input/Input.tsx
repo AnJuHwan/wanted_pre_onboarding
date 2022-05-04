@@ -1,27 +1,27 @@
-import { faCircleCheck, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react';
-import CenterContainer from '../CenterContainer/CenterContainer';
-import styles from './Input.module.css';
+import { faCircleCheck, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React, { useState } from 'react'
+import CenterContainer from '../CenterContainer/CenterContainer'
+import styles from './Input.module.css'
 
-const Input: React.FC = (props) => {
-  const [email, setEmail] = useState<string>('');
-  const [emailOutFocus, setEmailOutFocus] = useState<boolean>(false);
-  const [password, setPassword] = useState<string>('');
-  const [passwordOpen, setPasswordOpen] = useState<boolean>(false);
+function Input() {
+  const [email, setEmail] = useState<string>('')
+  const [emailOutFocus, setEmailOutFocus] = useState<boolean>(false)
+  const [password, setPassword] = useState<string>('')
+  const [passwordOpen, setPasswordOpen] = useState<boolean>(false)
 
-  const emailError = 'Invalid e-mail address.';
-  const emailRegExp = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; // 이메일 정규 표현식
-  const emailSuccess = !emailRegExp.test(email) ? `${styles.emailFail}` : `${styles.emailSuccess}`;
+  const emailError = 'Invalid e-mail address.'
+  const emailRegExp = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/ // 이메일 정규 표현식
+  const emailSuccess = !emailRegExp.test(email) ? styles.emailFail : styles.emailSuccess
 
   const successEmailHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setEmailOutFocus(false);
-    setEmail(e.currentTarget.value);
-  };
+    setEmailOutFocus(false)
+    setEmail(e.currentTarget.value)
+  }
 
   const passwordHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setPassword(e.currentTarget.value);
-  };
+    setPassword(e.currentTarget.value)
+  }
 
   return (
     <CenterContainer>
@@ -36,17 +36,9 @@ const Input: React.FC = (props) => {
             onBlur={() => setEmailOutFocus(true)}
             className={styles.input}
           />
-          <FontAwesomeIcon
-            icon={faCircleCheck}
-            className={`${styles.successEmail} ${emailSuccess}`}
-          />
+          <FontAwesomeIcon icon={faCircleCheck} className={`${styles.successEmail} ${emailSuccess}`} />
         </div>
-        {emailOutFocus && (
-          <span style={{ color: 'red', fontSize: 12 }}>
-            {!emailRegExp.test(email) && emailError}
-          </span>
-        )}
-
+        {emailOutFocus && <span style={{ color: 'red', fontSize: 12 }}>{!emailRegExp.test(email) && emailError}</span>}{' '}
         <div className={styles.form}>
           <label className={styles.passwordLabel} htmlFor='Password'>
             Password
@@ -60,15 +52,13 @@ const Input: React.FC = (props) => {
           />
           <FontAwesomeIcon
             icon={passwordOpen ? faEye : faEyeSlash}
-            className={`${styles.opnePasswordIcon} ${
-              passwordOpen ? styles.passwordOpen : styles.passwordClose
-            }`}
+            className={`${styles.opnePasswordIcon} ${passwordOpen ? styles.passwordOpen : styles.passwordClose}`}
             onClick={() => setPasswordOpen(!passwordOpen)}
           />
         </div>
       </div>
     </CenterContainer>
-  );
-};
+  )
+}
 
-export default Input;
+export default Input

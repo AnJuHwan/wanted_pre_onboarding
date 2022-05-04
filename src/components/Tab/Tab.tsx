@@ -1,24 +1,32 @@
-import React, { useState } from 'react';
-import styles from './Tab.module.css';
-import CenterContainer from '../CenterContainer/CenterContainer';
+import React, { useState } from 'react'
+import styles from './Tab.module.css'
+import CenterContainer from '../CenterContainer/CenterContainer'
 
-const Tab = () => {
-  const tabBarData: string[] = ['감자', '고구마', '카레라이스'];
-  const [selectTabBar, setSelectTabBar] = useState<string>('감자');
+function Tab() {
+  const tabBarData: string[] = ['감자', '고구마', '카레라이스']
+  const [selectTabBar, setSelectTabBar] = useState<string>('감자')
 
-  const focusedItem = `${styles.tabBarItem} ${styles.focusedTabBarItem}`;
-  const tabBarItem = `${styles.tabBarItem}`;
+  const focusedItem = `${styles.tabBarItem} ${styles.focusedTabBarItem}`
+  const tabBarItem = `${styles.tabBarItem}`
 
   const tabBarSelect = (): number | null => {
     if (selectTabBar === '감자') {
-      return 0;
-    } else if (selectTabBar === '고구마') {
-      return 100;
-    } else if (selectTabBar === '카레라이스') {
-      return 200;
+      return 0
     }
-    return null;
-  };
+    if (selectTabBar === '고구마') {
+      return 100
+    }
+    if (selectTabBar === '카레라이스') {
+      return 200
+    }
+    return null
+  }
+
+  const tabBarClickHandler = (e: React.FormEvent<HTMLButtonElement>, data: string) => {
+    e.preventDefault()
+    setSelectTabBar(data)
+  }
+
   return (
     <CenterContainer>
       <div className={styles.container}>
@@ -27,18 +35,19 @@ const Tab = () => {
             className={styles.foucsedBar}
             style={{
               transform: `translate(${tabBarSelect()}%)`,
-            }}></div>
+            }}
+          />
           {tabBarData.map((data, index) => {
             return (
-              <div
-                key={index}
+              <button
+                type='submit'
+                key={`tabBarItem${+index}`}
                 className={selectTabBar === `${data}` ? focusedItem : tabBarItem}
-                onClick={() => {
-                  setSelectTabBar(data);
-                }}>
+                onClick={(e: React.FormEvent<HTMLButtonElement>) => tabBarClickHandler(e, data)}
+              >
                 <span>{data}</span>
-              </div>
-            );
+              </button>
+            )
           })}
         </div>
         <div className={styles.content}>
@@ -46,7 +55,7 @@ const Tab = () => {
         </div>
       </div>
     </CenterContainer>
-  );
-};
+  )
+}
 
-export default Tab;
+export default Tab

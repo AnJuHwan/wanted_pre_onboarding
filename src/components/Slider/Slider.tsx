@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
-import CenterContainer from '../CenterContainer/CenterContainer';
-import styles from './Slider.module.css';
-const Slider = () => {
-  const persentData: number[] = [1, 25, 50, 75, 100];
-  const [rangePersent, setRangePersent] = useState<number>(1);
-  
-  const rangeHandler = (e: React.ChangeEvent<HTMLInputElement>):void => {
-    setRangePersent(Number(e.currentTarget.value));
-  };
+import React, { useState } from 'react'
+import CenterContainer from '../CenterContainer/CenterContainer'
+import styles from './Slider.module.css'
 
-  const persentHandler = (persent: number):void => {
-    setRangePersent(persent);
-  };
+function Slider() {
+  const persentData: number[] = [1, 25, 50, 75, 100]
+  const [rangePersent, setRangePersent] = useState<number>(1)
+
+  const rangeHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setRangePersent(Number(e.currentTarget.value))
+  }
+
+  const persentHandler = (persent: number): void => {
+    setRangePersent(persent)
+  }
 
   return (
     <CenterContainer>
@@ -25,7 +26,7 @@ const Slider = () => {
           {persentData.map((data, index) => {
             return (
               <div
-                key={index}
+                key={`progress${+index}`}
                 className={styles.step}
                 style={{
                   left: `${index === 0 ? 0 : data - 0.1}%`,
@@ -33,7 +34,7 @@ const Slider = () => {
                   backgroundColor: `${rangePersent >= data ? 'grey' : '#dbdbdb'}  `,
                 }}
               />
-            );
+            )
           })}
           <input
             className={styles.progressBar}
@@ -48,18 +49,20 @@ const Slider = () => {
         <div className={styles.selectPersentContainer}>
           {persentData.map((data, index) => {
             return (
-              <div
-                key={index}
+              <button
+                type='submit'
+                key={`selectPercent${+index}`}
                 className={styles.selectPersent}
-                onClick={() => persentHandler(data)}>
+                onClick={() => persentHandler(data)}
+              >
                 <span>{data}%</span>
-              </div>
-            );
+              </button>
+            )
           })}
         </div>
       </div>
     </CenterContainer>
-  );
-};
+  )
+}
 
-export default Slider;
+export default Slider

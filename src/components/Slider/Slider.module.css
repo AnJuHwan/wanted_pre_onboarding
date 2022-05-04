@@ -7,48 +7,47 @@ input[type='range']::-webkit-slider-thumb {
   position: relative;
   z-index: 100;
   border-radius: 150px;
-  box-shadow: 0px 0px 4px 4px white;
+  box-shadow: 0 0 4px 4px white;
 }
 
 .container {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 50%;
   padding: 20px 0;
   border: 1px solid black;
   border-radius: 15px;
-  justify-content: center;
-  align-items: center;
 }
 
 .persentBar {
   display: flex;
-  justify-content: flex-end;
   align-items: center;
-  background-color: #dbdbdb;
-  border: 1px solid #999999;
+  justify-content: flex-end;
   width: 50%;
   height: 40px;
-  margin-bottom: 10px;
   padding: 0 20px;
+  margin-bottom: 10px;
+  background-color: #dbdbdb;
+  border: 1px solid #999999;
   border-radius: 8px;
 }
 
 .progressBarContainer {
-  display: flex;
   position: relative;
-
+  display: flex;
   width: 80%;
 }
 
 .step {
   position: absolute;
-  width: 15px;
   z-index: 11;
+  width: 15px;
   height: 15px;
+  background-color: #dbdbdb;
   border: none;
   border-radius: 120px;
-  background-color: #dbdbdb;
 }
 
 .progressBar {
@@ -57,37 +56,37 @@ input[type='range']::-webkit-slider-thumb {
 
 .selectPersentContainer {
   display: flex;
-  width: 85%;
   justify-content: space-between;
+  width: 85%;
   margin-top: 10px;
 }
 
 .selectPersent {
   display: flex;
-  justify-content: center;
   align-items: center;
-  background-color: #dbdbdb;
-  border-radius: 150px;
+  justify-content: center;
   width: 40px;
   cursor: pointer;
+  background-color: #dbdbdb;
+  border-radius: 150px;
 }
 
 .selectPersent span {
   font-size: 12px;
-  color: grey;
+  color: rgb(130, 128, 128);
 }
 
 .selectPersent :hover {
   display: flex;
-  justify-content: center;
   align-items: center;
-  background-color: grey;
-  border-radius: 150px;
+  justify-content: center;
   width: 40px;
   cursor: pointer;
+  background-color: rgb(130, 128, 128);
+  border-radius: 150px;
 }
 
 .selectPersent span:hover {
   font-size: 12px;
-  color: white;
+  color: rgb(255, 255, 255);
 }

@@ -13,33 +13,33 @@
 
 .tabBarItem {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex: 1;
+  align-items: center;
+  justify-content: center;
+  color: rgba(0, 0, 0, 50%);
+  cursor: pointer;
   background-color: white;
   border-bottom: 2px solid #dbdbdb;
-  color: rgba(0, 0, 0, 0.5);
-  cursor: pointer;
 }
 
 .focusedTabBarItem span {
-  color: black;
+  color: rgb(0, 0, 0);
 }
 
 .foucsedBar {
   position: absolute;
-  width: 33.33333%;
-  height: 2px;
-  background-color: cadetblue;
   bottom: 0;
   z-index: 2;
+  width: 33.3333%;
+  height: 2px;
+  background-color: cadetblue;
   transition: 0.5s;
 }
 
 .content {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex: 1;
+  align-items: center;
+  justify-content: center;
   height: 80%;
 }
