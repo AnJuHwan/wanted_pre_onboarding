@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import styles from './App.module.css'
 import Dropdown from './components/Dropdown/Dropdown'
 import Input from './components/Input/Input'
