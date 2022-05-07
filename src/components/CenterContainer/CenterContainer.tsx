@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './CenterContainer.module.css'
+import styles from './CenterContainer.module.scss'
 
 interface IProps {
   children: JSX.Element

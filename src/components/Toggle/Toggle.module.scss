@@ -1,36 +1,36 @@
+@use '../../styles/constants/colors';
+@use '../../styles/mixins/position';
+@use '../../styles/mixins/flexbox';
+
 span {
-  position: relative;
+  @include position.relative(0);
   z-index: 100;
 }
 
 .buttonContainer {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include position.relative(0);
+  @include flexbox.flexbox(center, center);
   width: 50%;
   height: 50px;
-  background-color: #dbdbdb;
+  background-color: colors.$GRAYE;
   border-radius: 120px;
 }
 
 .button {
   flex: 1;
   height: 42px;
-  color: rgba(0, 0, 0, 20%);
+  color: rgba(colors.$BLACK, 20%);
   cursor: pointer;
   background-color: transparent;
   border-radius: 120px;
 }
 
 .buttonFocus {
-  color: rgba(0, 0, 0, 80%);
+  color: rgba(colors.$BLACK, 80%);
 }
 
 .focusBackground {
-  position: absolute;
-  top: 50%;
-  left: 0%;
+  @include position.absolute(50% auto auto 0%);
   z-index: 1;
   width: 50%;
   height: 42px;

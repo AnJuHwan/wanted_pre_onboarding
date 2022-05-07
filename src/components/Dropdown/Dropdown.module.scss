@@ -1,20 +1,21 @@
+@use '../../styles/constants/colors';
+@use '../../styles/mixins/position';
+@use '../../styles/mixins/flexbox';
+
 .container {
-  display: flex;
+  @include flexbox.flexbox(start, center);
   flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
   height: 310px;
   padding: 20px;
-  border: 1px solid rgb(219, 219, 219);
+  border: 1px solid colors.$GRAYA;
 }
 
 .dropdownBox {
-  display: flex;
-  justify-content: space-between;
+  @include flexbox.flexbox(between, center);
   width: 220px;
   padding: 10px;
   cursor: pointer;
-  border: 1px solid rgb(153, 153, 153);
+  border: 1px solid colors.$GRAYA;
   border-radius: 4px;
 }
 
@@ -25,15 +26,13 @@
 .selectItemContainer {
   width: 220px;
   margin-top: 4px;
-  border: 1px solid rgb(153, 153, 153);
+  border: 1px solid colors.$GRAYA;
   border-radius: 4px;
 }
 
 .searchContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-bottom: 1px solid rgb(219, 219, 219);
+  @include flexbox.flexbox(center, center);
+  border-bottom: 1px solid colors.$GRAYA;
 }
 
 .searchContainer input {
@@ -47,11 +46,11 @@
   height: 12px;
   margin-right: 2px;
   margin-left: 4px;
-  color: rgb(219, 219, 219);
+  color: colors.$GRAYA;
 }
 
 .selectItemBox {
-  display: flex;
+  @include flexbox.flex;
   flex-direction: column;
   padding: 5px 0;
 }
@@ -62,11 +61,11 @@
   font-size: 14px;
   list-style: none;
   cursor: pointer;
-  background-color: rgba(255, 255, 255);
+  background-color: colors.$WHITE;
 }
 
 .listItem:hover {
   width: 100%;
   padding: 5px 20px;
-  background-color: rgba(0, 0, 0, 10%);
+  background-color: rgba(colors.$BLACK, 10%);
 }

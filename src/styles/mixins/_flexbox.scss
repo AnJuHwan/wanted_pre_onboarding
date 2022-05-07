@@ -22,3 +22,7 @@ $FLEX_MAP: (
   align-items: _getFlexValue($ai);
   justify-content: _getFlexValue($jc);
 }
+
+@mixin flex {
+  display: flex;
+}

@@ -1,51 +1,51 @@
+@use '../../styles/constants/colors';
+@use '../../styles/mixins/position';
+@use '../../styles/mixins/flexbox';
+
 input[type='range'] {
-  accent-color: grey;
+  accent-color: colors.$GRAY6;
   overflow: hidden;
 }
 
 input[type='range']::-webkit-slider-thumb {
-  position: relative;
+  @include position.relative(0);
   z-index: 100;
   border-radius: 150px;
-  box-shadow: 0 0 4px 4px white;
+  box-shadow: 0 0 4px 4px colors.$WHITE;
 }
 
 .container {
-  display: flex;
+  @include flexbox.flexbox(center, center);
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   width: 50%;
   padding: 20px 0;
-  border: 1px solid black;
+  border: 1px solid colors.$BLACK;
   border-radius: 15px;
 }
 
 .persentBar {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  @include flexbox.flexbox(end, center);
   width: 50%;
   height: 40px;
   padding: 0 20px;
   margin-bottom: 10px;
-  background-color: #dbdbdb;
-  border: 1px solid #999999;
+  background-color: colors.$GRAYE;
+  border: 1px solid colors.$GRAY6;
   border-radius: 8px;
 }
 
 .progressBarContainer {
-  position: relative;
-  display: flex;
+  @include position.relative(0);
+  @include flexbox.flex;
   width: 80%;
 }
 
 .step {
-  position: absolute;
+  @include position.absolute(auto auto auto auto);
   z-index: 11;
   width: 15px;
   height: 15px;
-  background-color: #dbdbdb;
+  background-color: colors.$GRAYE;
   border: none;
   border-radius: 120px;
 }
@@ -55,38 +55,33 @@ input[type='range']::-webkit-slider-thumb {
 }
 
 .selectPersentContainer {
-  display: flex;
-  justify-content: space-between;
+  @include flexbox.flexbox(between, center);
   width: 85%;
   margin-top: 10px;
 }
 
 .selectPersent {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flexbox.flexbox(center, center);
   width: 40px;
   cursor: pointer;
-  background-color: #dbdbdb;
+  background-color: colors.$GRAYE;
   border-radius: 150px;
 }
 
 .selectPersent span {
   font-size: 12px;
-  color: rgb(130, 128, 128);
+  color: colors.$BLACK;
 }
 
 .selectPersent :hover {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flexbox.flexbox(center, center);
   width: 40px;
   cursor: pointer;
-  background-color: rgb(130, 128, 128);
+  background-color: colors.$GRAY6;
   border-radius: 150px;
 }
 
 .selectPersent span:hover {
   font-size: 12px;
-  color: rgb(255, 255, 255);
+  color: colors.$WHITE;
 }

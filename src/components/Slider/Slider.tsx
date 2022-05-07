@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import CenterContainer from '../CenterContainer/CenterContainer'
-import styles from './Slider.module.css'
+import styles from './Slider.module.scss'
 
 function Slider() {
   const persentData: number[] = [1, 25, 50, 75, 100]

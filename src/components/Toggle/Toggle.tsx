@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styles from './Toggle.module.css'
+import styles from './Toggle.module.scss'
 import CenterContainer from '../CenterContainer/CenterContainer'
 
 function Toggle() {

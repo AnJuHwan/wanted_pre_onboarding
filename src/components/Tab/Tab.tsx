@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styles from './Tab.module.css'
+import styles from './Tab.module.scss'
 import CenterContainer from '../CenterContainer/CenterContainer'
 
 function Tab() {

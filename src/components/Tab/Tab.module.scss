@@ -1,0 +1,44 @@
+@use '../../styles/constants/colors';
+@use '../../styles/mixins/position';
+@use '../../styles/mixins/flexbox';
+
+.container {
+  width: 50%;
+  height: 50%;
+  background-color: colors.$WHITE;
+  border: 1px solid colors.$BLACK;
+}
+
+.tabBar {
+  @include position.relative(0);
+  @include flexbox.flex;
+  height: 20%;
+}
+
+.tabBarItem {
+  @include flexbox.flexbox(center, center);
+  flex: 1;
+  color: rgba(0, 0, 0, 50%);
+  cursor: pointer;
+  background-color: colors.$WHITE;
+  border-bottom: 2px solid colors.$GRAYE;
+}
+
+.focusedTabBarItem span {
+  color: colors.$BLACK;
+}
+
+.foucsedBar {
+  @include position.absolute(auto auto 0 auto);
+  z-index: 2;
+  width: 33.3333%;
+  height: 2px;
+  background-color: colors.$GRAYA;
+  transition: 0.5s;
+}
+
+.content {
+  @include flexbox.flexbox(center, center);
+  flex: 1;
+  height: 80%;
+}

@@ -2,7 +2,7 @@ import { faCircleCheck, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-ic
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useState } from 'react'
 import CenterContainer from '../CenterContainer/CenterContainer'
-import styles from './Input.module.css'
+import styles from './Input.module.scss'
 
 function Input() {
   const [email, setEmail] = useState<string>('')

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useEffect, useRef, useState } from 'react'
 import CenterContainer from '../CenterContainer/CenterContainer'
 
-import styles from './Dropdown.module.css'
+import styles from './Dropdown.module.scss'
 
 function Dropdown() {
   const dropdownItems: string[] = ['BTCUSD.PERP', 'ETHUSD.PERP', 'BCHUSD.PERP', 'LTCUSD.PERP', 'XRPUSD.PERP']
